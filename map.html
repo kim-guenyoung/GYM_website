@@ -1,0 +1,51 @@
+<style>
+    #map {
+        height: 400px;
+        width: 100%;
+    }
+</style>
+</head>
+<body>
+<h1>Google Maps Example</h1>
+<div id="map"></div>
+
+<script>
+    // 구글 지도 API 키
+    const apiKey = 'AIzaSyC972JC6XbnY4PtbJmJlT9aidysGGVUMG8';
+
+    // 지도를 표시할 위치의 위도와 경도
+    const latitude = 36.8131; // 위도
+    const longitude = 127.1481; // 경도
+
+    // API 스크립트 동적으로 추가
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`;
+    script.defer = true;
+    script.async = true;
+
+    // 스크립트 로딩이 완료되면 initMap 함수 호출
+    script.onload = () => {
+        initMap();
+    };
+
+    // 페이지에 스크립트 추가
+    document.head.appendChild(script);
+
+    // 구글 지도 초기화 함수
+    function initMap() {
+        const mapOptions = {
+            center: { lat: latitude, lng: longitude },
+            zoom: 15 // 확대 수준 (1:세계, 5:대륙, 10:도시, 15:거리, 20:건물)
+        };
+
+        // 지도 생성
+        const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+        // 마커 생성
+        const marker = new google.maps.Marker({
+            position: { lat: latitude, lng: longitude },
+            map: map,
+            title: '마커 제목'
+        });
+    }
+</script>

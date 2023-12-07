@@ -1,0 +1,37 @@
+body {
+    display: grid;
+    place-items: center;
+    font-family: "League Spartan", system-ui, sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.2;
+    background-color: #220505;
+    color: #ddd;
+    
+  }
+
+.transparent-button {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0; /* 배경색 설정 */
+}
+
+/* 버튼 스타일 설정 */
+.transparent-button {
+    background: none; /* 배경색 없음 */
+    border: 2px solid #4285f4; /* 테두리 색상 */
+    color: #4285f4; /* 글자 색상 */
+    padding: 10px 20px; /* 내부 여백 */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s; /* 호버 효과를 위한 트랜지션 */
+}
+
+/* 호버 시 스타일 변경 */
+.transparent-button:hover {
+    background: #4285f4; /* 배경색 변경 */
+    color: #fff; /* 글자 색상 변경 */
+}

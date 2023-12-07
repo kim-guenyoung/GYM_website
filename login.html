@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9 user-scalable=no">
+    <title>메인화면</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="login_box">
+      <div class="login_title">
+        로그인 하세요
+      </div>
+      <div class="login_input">
+        <div class="login_id">
+          <input class="inp_id" type="text" placeholder="아이디" id="usernameInput">
+        </div>
+        <div class="login_pwd">
+          <input class="inp_pw" type="password" placeholder="비밀번호" id="passwordInput">
+        </div>
+      </div>
+      <div class="btn_box">
+        <button id="login_btn" type="button" onclick="login()">Login</button>
+        <div class="others">
+          <ul>
+            <li>
+              <a>회원가입</a>
+            </li><span>&nbsp;|</span>
+            <li>
+              <a>아이디 찾기</a>
+            </li>
+            <span>|</span>
+            <li>
+              <a>비밀번호 재설정</a>
+            </li>
+          </ul>          
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function login() {
+        // Get values from input fields
+        const inputUsername = document.getElementById('usernameInput').value;
+        const inputPassword = document.getElementById('passwordInput').value;
+
+        // Call the loginUser function
+        loginUser(inputUsername, inputPassword);
+      }
+
+      function loginUser(username, password) {
+        fetch('회원.csv') 
+          .then(response => response.text())
+          .then(data => {
+            const userLines = data.trim().split('\n');
+            const headers = userLines.shift().split(',');
+
+            // Find the index of ID and PW columns
+            const idIndex = headers.indexOf('ID');
+            const pwIndex = headers.indexOf('PW');
+
+            // 각 사용자 정보를 확인
+            for (const userLine of userLines) {
+              const userValues = userLine.split(',');
+              const storedUsername = userValues[idIndex];
+              const storedPassword = userValues[pwIndex];
+
+              if (username === storedUsername && password === storedPassword) {
+                alert("Login successful!");
+                
+                // Redirect to personal.html upon successful login
+                window.location.href = 'personal.html';
+                return;
+              }
+            }
+
+            // 모든 사용자 정보를 확인한 후에도 일치하는 정보가 없으면 실패
+            alert("Invalid username or password");
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+      }
+    </script>
+  </body>
+</html>
