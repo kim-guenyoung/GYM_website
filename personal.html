@@ -1,11 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSV 파일 읽기</title>
+    <link rel = "stylesheet" href="personal.css">
+  </head>
+  <body>
+    <h1>개인 페이지</h1>
+    <div id="csvContent"></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // "회원.csv" 파일을 읽어오기
+        readCSV("회원.csv");
+      });
+
+      function readCSV(filename) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              // CSV 파일을 파싱하여 출력
+              displayAllIDs(xhr.responseText);
+            } else {
+              console.error("Error loading CSV file");
+            }
+          }
+        };
+
+        xhr.open("GET", filename, true);
+        xhr.send();
+      }
+
+      function displayAllIDs(csv) {
+        // CSV 파싱
+        var rows = csv.split('\n');
+        var contentDiv = document.getElementById('csvContent');
+      
+        // 첫 번째 행은 헤더
+        var headers = rows[0].split(',');
+      
+        // "ID", "Name", "Due Date"의 열 인덱스 찾기
+        var idIndex = headers.indexOf('ID');
+        var nameIndex = headers.indexOf('이름');
+        var dueDateIndex = headers.indexOf('마감일');
+      
+        // 로컬 스토리지에서 저장된 "User" 키의 값을 가져옴
+        var storedUserValue = localStorage.getItem('User');
+      
+        // 회원.csv의 각 행을 확인하여 ID와 로컬 스토리지의 "User" 값이 일치할 때만 출력
+        for (var i = 1; i < rows.length; i++) {
+          var cells = rows[i].split(',');
+          var id = cells[idIndex];
+      
+          // ID와 로컬 스토리지의 "User" 값이 같은 경우에만 출력
+          if (id === storedUserValue) {
+            var name = cells[nameIndex];
+            var dueDateStr = cells[dueDateIndex];
+      
+            // Parse the due date string to a JavaScript Date object
+            var dueDate = new Date(dueDateStr);
+      
+            // Calculate the remaining days
+            var currentDate = new Date();
+            var remainingDays = Math.ceil((dueDate - currentDate) / (1000 * 60 * 60 * 24));
+      
+            // Set text color to red for the remaining days
+            var textColor = remainingDays < 7 ? 'red' : 'inherit';
+
+            var extensionPrompt = remainingDays < 7
+              ? "<p>일주일도 안 남았습니다. 연장하시겠습니까?</p><button onclick='extendDueDate()'>예</button> <button onclick='cancelExtension()'>아니요</button>"
+              : "";
+      
+            contentDiv.innerHTML +=
+              "<h3>" + name + "님! <span style='color: " + textColor + "'>" + remainingDays + "일</span> 남았습니다." + extensionPrompt + "</h3>";
+          }
+        }
+      }
+      
+      function extendDueDate() {
+        // Implement the logic to extend the due date here
+        alert('결제 페이지로 이동합니다.');
+        window.location.href = '온라인 결제.html';
+      }
+      
+      function cancelExtension() {
+        // Implement the logic when the user chooses not to extend
+        alert('연장이 필요하면, 언제든 해주세요.');
+      }
+      
+    </script>
+  </body>
 </html>

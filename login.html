@@ -66,6 +66,9 @@
               const storedPassword = userValues[pwIndex];
 
               if (username === storedUsername && password === storedPassword) {
+                // Save the username to local storage
+                localStorage.setItem('User', username);
+
                 alert("Login successful!");
                 
                 // Redirect to personal.html upon successful login
