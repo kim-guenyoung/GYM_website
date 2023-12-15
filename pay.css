@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8; /* Light gray background */
+    color: #333; /* Dark gray text color */
+}
+
+#payment-form {
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #333; /* Dark gray border */
+    border-radius: 8px;
+    background-color: #fff; /* White background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #555; /* Slightly darker gray text color */
+}
+
+button {
+    padding: 10px;
+    background-color: #333; /* Dark gray background */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 80px;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+button:hover {
+    background-color: #555; /* Darker gray background on hover */
+}
+
+#coupon-code {
+    display: none; /* Initially hidden */
+}

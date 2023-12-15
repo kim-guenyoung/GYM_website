@@ -4,118 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>온라인 결제</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
+    <link rel="stylesheet" href="pay.css">
+    </head>
+    <body>
+        <form id="payment-form">
+            <h2>온라인 결제</h2>
+    
+            <div class="form-group">
+                <label for="months">개월 수 선택:</label>
+                <select id="months" onchange="calculatePrice()" required>
+                    <option value="" disabled selected hidden>개월 수 선택</option>
+                        <option value="1">1개월</option>
+                        <option value="2">2개월</option>
+                        <option value="3">3개월</option>
+                        <option value="4">4개월</option>
+                        <option value="5">5개월</option>
+                        <option value="6">6개월</option>
+                        <option value="7">7개월</option>
+                        <option value="8">8개월</option>
+                        <option value="9">9개월</option>
+                        <option value="10">10개월</option>
+                        <option value="11">11개월</option>
+                        <option value="12">12개월</option>
+                    </select>
+                </select>
+            </div>
+            <br>
+            <div class="form-group">
+                <label>결제 방법:</label>
+                <input type="radio" name="payment-method" id="cash" value="cash" required> <label for="cash">현금</label>
+                <input type="radio" name="payment-method" id="card" value="card" required> <label for="card">카드</label>
+                <input type="checkbox" name="payment-method" id="coupon" value="coupon" onchange="toggleCouponCode()">
+                <label for="coupon">쿠폰</label>
+            </div>
+    
+            <div id="coupon-code" style="display: none;">
+                <label for="coupon-input">쿠폰 코드 입력:</label>
+                <input type="text" id="coupon-input">
+                <button type="button" onclick="applyCoupon()">확인</button>
+            </div>
+    
+            <div class="form-group">
+                <label for="total-price">총 가격:</label>
+                <span id="total-price">0원</span>
+            </div>
+    
+            <button type="button" onclick="processPayment()">결제</button>
+        </form>
 
-        #payment-form {
-            width: 400px;
-            margin: 50px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+        <script>
+            function calculatePrice() {
+                var monthsSelect = document.getElementById("months");
+                var totalPriceElement = document.getElementById("total-price");
+                var selectedMonths = parseInt(monthsSelect.value);
+                var discount = selectedMonths >= 3 ? 1000 * Math.floor(selectedMonths / 3) : 0;
 
-        label {
-            display: block;
-            margin-bottom: 10px;
-        }
+                var pricePerMonth = 10000;
+                var totalPrice = selectedMonths * pricePerMonth - discount;
 
-        button {
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
+                // 쿠폰 코드 적용
+                var couponCodeInput = document.getElementById("coupon-input");
+                var couponDiscount = 0;
 
-        #coupon-code {
-            display: none; /* 초기에는 숨김 처리 */
-        }
-    </style>
-</head>
-<body>
-    <form id="payment-form">
-        <h2>온라인 결제</h2>
-        <label for="months">개월 수 선택:</label>
-        <select id="months" onchange="calculatePrice()" required>
-            <option value="" disabled selected hidden>개월 수 선택</option>
-            <option value="1">1개월</option>
-            <option value="2">2개월</option>
-            <option value="3">3개월</option>
-            <option value="4">4개월</option>
-            <option value="5">5개월</option>
-            <option value="6">6개월</option>
-            <option value="7">7개월</option>
-            <option value="8">8개월</option>
-            <option value="9">9개월</option>
-            <option value="10">10개월</option>
-            <option value="11">11개월</option>
-            <option value="12">12개월</option>
-        </select>
+                // 쿠폰 코드 일치 여부 확인
+                if (document.getElementById("coupon").checked && couponCodeInput.value === "coupon") {
+                    couponDiscount = totalPrice * 0.2; // 20% 할인
+                }
 
-        <label>결제 방법:</label>
-        <input type="radio" name="payment-method" id="cash" value="cash" required>
-        <label for="cash">현금</label>
+                totalPrice -= couponDiscount;
 
-        <input type="radio" name="payment-method" id="card" value="card" required>
-        <label for="card">카드</label>
-
-        <input type="checkbox" name="payment-method" id="coupon" value="coupon" onchange="toggleCouponCode()">
-        <label for="coupon">쿠폰</label>
-
-        <div id="coupon-code">
-            <label for="coupon-input">쿠폰 코드 입력:</label>
-            <input type="text" id="coupon-input">
-            <button type="button" onclick="applyCoupon()">확인</button>
-        </div>
-
-        <label for="total-price">총 가격:</label>
-        <span id="total-price">0원</span>
-
-        <button type="button" onclick="processPayment()">결제</button>
-    </form>
-
-    <script>
-        function calculatePrice() {
-            var monthsSelect = document.getElementById("months");
-            var totalPriceElement = document.getElementById("total-price");
-            var selectedMonths = parseInt(monthsSelect.value);
-            var discount = selectedMonths >= 3 ? 1000 * Math.floor(selectedMonths / 3) : 0;
-
-            var pricePerMonth = 10000;
-            var totalPrice = selectedMonths * pricePerMonth - discount;
-
-            // 쿠폰 코드 적용
-            var couponCodeInput = document.getElementById("coupon-input");
-            var couponDiscount = 0;
-
-            // 쿠폰 코드 일치 여부 확인
-            if (document.getElementById("coupon").checked && couponCodeInput.value === "coupon") {
-                couponDiscount = totalPrice * 0.2; // 20% 할인
+                totalPriceElement.textContent = totalPrice + "원";
             }
 
-            totalPrice -= couponDiscount;
+            function toggleCouponCode() {
+                var couponCodeDiv = document.getElementById("coupon-code");
+                couponCodeDiv.style.display = document.getElementById("coupon").checked ? "block" : "none";
+                calculatePrice(); // 쿠폰 체크 여부 변경 시 가격을 다시 계산
+            }
 
-            totalPriceElement.textContent = totalPrice + "원";
-        }
+            function applyCoupon() {
+                calculatePrice(); // 쿠폰 코드 확인 버튼을 눌렀을 때 가격을 다시 계산
+            }
 
-        function toggleCouponCode() {
-            var couponCodeDiv = document.getElementById("coupon-code");
-            couponCodeDiv.style.display = document.getElementById("coupon").checked ? "block" : "none";
-            calculatePrice(); // 쿠폰 체크 여부 변경 시 가격을 다시 계산
-        }
-
-        function applyCoupon() {
-            calculatePrice(); // 쿠폰 코드 확인 버튼을 눌렀을 때 가격을 다시 계산
-        }
-
-        function processPayment() {
-            // 유효성 검사 및 결제 로직을 여기에 추가
-            alert('결제가 완료되었습니다!');
-        }
-    </script>
-</body>
+            function processPayment() {
+                // 유효성 검사 및 결제 로직을 여기에 추가
+                var totalPrice = parseFloat(document.getElementById("total-price").textContent);
+                var cashRadio = document.getElementById("cash");
+                var cardRadio = document.getElementById("card");
+            
+                if (!cashRadio.checked && !cardRadio.checked) {
+                    alert('결제 방법을 선택해주세요');
+                    return;
+                }
+                if (totalPrice === 0) {
+                    alert('선택된 결제내역이 없습니다. 다시 확인해주세요.');
+                } else {
+                    alert(totalPrice + '원 결제가 완료되었습니다!');
+                }
+            }
+        </script>
+    </body>
 </html>

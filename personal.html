@@ -59,10 +59,8 @@
             var name = cells[nameIndex];
             var dueDateStr = cells[dueDateIndex];
       
-            // Parse the due date string to a JavaScript Date object
             var dueDate = new Date(dueDateStr);
       
-            // Calculate the remaining days
             var currentDate = new Date();
             var remainingDays = Math.ceil((dueDate - currentDate) / (1000 * 60 * 60 * 24));
       
@@ -80,13 +78,11 @@
       }
       
       function extendDueDate() {
-        // Implement the logic to extend the due date here
         alert('결제 페이지로 이동합니다.');
-        window.location.href = '온라인 결제.html';
+        window.location.href = 'pay.html';
       }
       
       function cancelExtension() {
-        // Implement the logic when the user chooses not to extend
         alert('연장이 필요하면, 언제든 해주세요.');
       }
       

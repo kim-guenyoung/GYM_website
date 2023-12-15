@@ -1,124 +1,125 @@
 .qus{
-    padding-top: 7rem;
-    width: 1000px;
-    margin: 0 auto;
-  }
-  .qus h1{
-    padding-top: 2rem;
-    font-size: 2rem;
-    letter-spacing: .1rem;
-    padding-bottom: 2rem;
-    padding-left: 2rem;
-  }
-  .qus section {
-    width: 100%;
-    border-bottom: 1px solid #22222222;
-  }
-  .qus section ul li{
-    list-style: none;
-    font-size: 1rem;
-    line-height: 2rem;
-  }
-  .qus section ul{
-    display: flex;
-    text-align: center;
-  }
-  .qus section ul li:nth-child(1){
-    width: 15%;
-  }
-  .qus section ul li:nth-child(2){
-    width: 68%;
-  }
-  .qus section ul li:nth-child(3){
-    width: 10%;
-  }
-  .qus section ul li:nth-child(4){
-    width: 7%;
-  
-  }
-  
-  
-  .qus label {
-    width: 100%;
-    border-bottom: 1px solid #22222222;
-  }
-  .qus label ul li{
-    list-style: none;
-    font-size: 1rem;
-    line-height: 1rem;
-  }
-  .qus label ul{
-    display: flex;
-    padding: 2rem 0;
-  }
-  .qus label ul li:nth-child(1){
-    width: 15%;
-    text-align: center;
-  }
-  .qus label ul li:nth-child(2){
-    width: 68%;
-    padding-left: 3rem;
-  }
-  .qus label ul li:nth-child(3){
-    width: 10%;
-    text-align: center;
-  }
-  .qus label ul li:nth-child(4){
-    width: 7%;
-    text-align: center;
-  }
-  .talk{
-    background: #eeeeee55;
-  }
-  .talk p{
-    padding-bottom: 2rem;
-    padding-left: 9rem;
-    line-height: 1.7rem;
-  }
-  .talk p:nth-child(1){
-    padding-top: 5rem;
-  }
-  .talk p:last-child{
-    padding-bottom: 5rem;
-  }
-  
-  .qus >:nth-child(7){
-    padding-top: 0;
-  }
-  .read-more-state {
-    display: none;
-  }
-  
-  .read-more-target {
-    opacity: 0;
-    max-height: 0;
-    font-size: 0;
-    transition: .1s ease;
-  }
-  
-  .read-more-state:checked ~  .read-more-target {
-    opacity: 1;
-    font-size: inherit;
-    max-height: 999em;
-  }
-  
-  
-  .read-more-trigger {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    z-index: 999;
-  }
-  .yun{
-    opacity: .8;
-  }
-  .mainpage{
-    margin-top: 1rem;
-    text-align: center;
-  }
-  .hoya{
-    font-size: 1rem;
-    font-family: 'NEXON Lv1 Gothic OTF';
-    font-weight: 600;
-    line-height: 2rem;
-  }
+  padding-top: 7rem;
+  width: 1000px;
+  margin: 0 auto;
+}
+.qus h1{
+  padding-top: 2rem;
+  font-size: 2rem;
+  letter-spacing: .1rem;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+}
+.qus section {
+  width: 100%;
+  border-bottom: 1px solid #22222222;
+}
+.qus section ul li{
+  list-style: none;
+  font-size: 1rem;
+  line-height: 2rem;
+}
+.qus section ul{
+  display: flex;
+  text-align: center;
+}
+.qus section ul li:nth-child(1){
+  width: 15%;
+}
+.qus section ul li:nth-child(2){
+  width: 68%;
+}
+.qus section ul li:nth-child(3){
+  width: 10%;
+}
+.qus section ul li:nth-child(4){
+  width: 7%;
+
+}
+
+
+.qus label {
+  width: 100%;
+  border-bottom: 1px solid #22222222;
+}
+.qus label ul li{
+  list-style: none;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+.qus label ul{
+  display: flex;
+  padding: 2rem 0;
+}
+.qus label ul li:nth-child(1){
+  width: 15%;
+  text-align: center;
+}
+.qus label ul li:nth-child(2){
+  width: 68%;
+  padding-left: 3rem;
+}
+.qus label ul li:nth-child(3){
+  width: 10%;
+  text-align: center;
+}
+.qus label ul li:nth-child(4){
+  width: 7%;
+  text-align: center;
+}
+.talk{
+  background: #eeeeee55;
+}
+.talk p{
+  padding-bottom: 2rem;
+  padding-left: 9rem;
+  line-height: 1.7rem;
+}
+.talk p:nth-child(1){
+  padding-top: 5rem;
+}
+.talk p:last-child{
+  padding-bottom: 5rem;
+}
+
+.qus >:nth-child(7){
+  padding-top: 0;
+}
+.read-more-state {
+  display: none;
+}
+
+.read-more-target {
+  opacity: 0;
+  max-height: 0;
+  font-size: 0;
+  transition: .1s ease;
+}
+
+.read-more-state:checked ~  .read-more-target {
+  opacity: 1;
+  font-size: inherit;
+  max-height: 999em;
+}
+
+
+.read-more-trigger {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  z-index: 999;
+}
+.yun{
+  opacity: .8;
+}
+.mainpage{
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.hoya{
+  font-size: 1rem;
+  font-family: 'NEXON Lv1 Gothic OTF';
+  font-weight: 600;
+  line-height: 2rem;
+}
