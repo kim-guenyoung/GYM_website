@@ -1,51 +1,139 @@
-<style>
-    #map {
-        height: 400px;
-        width: 100%;
-    }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/fullpage.css" />
+    <link rel="stylesheet" href="css/swiper.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+   
+  
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        #map {
+            height: 400px;
+            width: 50%; /* Adjust the width as needed */
+            margin: 20px auto; /* Center the map */
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        #howtogo{
+            color: rgb(216, 186, 37);
+            text-align: center;
+        }
+        #address,
+        #contact {
+            flex: 1; /* Equal width for both sections */
+            padding: 20px;
+            box-sizing: border-box;
+            display: inline-block;
+            margin-right: 100px;
+            justify-content: space-between;
+            
+        }
+
+        #address{
+            margin-left: 25%;
+        }
+        h2 {
+            color: #333;
+        }
+
+        h3 {
+            margin: 5px 0;
+            color: #555;
+        }
+    </style>
 </head>
+
 <body>
-<h1>Google Maps Example</h1>
-<div id="map"></div>
+    <h1>오시는 길</h1>
+    <hr><br>
+    <h2 id="howtogo">K-GYM으로 오시는 길을 소개합니다</h2>
+    <br>
+    
+    <div id="map"></div>
+    <div id = "address">
+        <h2>주소<br></h2>
+        <h3>(우) 31066 &nbsp; 충청남도 천안시 동남구 상명대길 31 K동</h3>
+        <br>
+    </div>
+    <div id = "contact">
+        <h2>연락처<br></h2>
+        <h3>대표연락처 : 010-1234-5678</h3>
+        <h3>이메일 : smukgym@smu.ac.kr</h3>
+    </div>
 
-<script>
-    // 구글 지도 API 키
-    const apiKey = 'AIzaSyC972JC6XbnY4PtbJmJlT9aidysGGVUMG8';
-
-    // 지도를 표시할 위치의 위도와 경도
-    const latitude = 36.8131; // 위도
-    const longitude = 127.1481; // 경도
-
-    // API 스크립트 동적으로 추가
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`;
-    script.defer = true;
-    script.async = true;
-
-    // 스크립트 로딩이 완료되면 initMap 함수 호출
-    script.onload = () => {
-        initMap();
-    };
-
-    // 페이지에 스크립트 추가
-    document.head.appendChild(script);
-
-    // 구글 지도 초기화 함수
-    function initMap() {
-        const mapOptions = {
-            center: { lat: latitude, lng: longitude },
-            zoom: 15 // 확대 수준 (1:세계, 5:대륙, 10:도시, 15:거리, 20:건물)
+    <div class="section page fp-auto-height" id="page6" data-anchor="6st">
+        <div class="footer" style="background-color: #494949; height: 200px;">
+          <div class="addresswrap">
+            <p class="top">
+              개인정보처리방침 | 영상정보처리기기 운영관리방침 | 이메일주소무단수집거부 | 홈페이지콘텐츠담당자 : 스포융합학부(전화 : 041-550-5334) / 메일 : convergenceofsports@smu.ac.kr
+            </p>
+            <p>
+              (우 31066) 충남 천안시 동남구 상명대길 31 상명대학교 스포츠융합학부 (스포츠센터 K102호) TEL. 041-550-5334 FAX. 041-550-5339
+            </p>
+            <p>COPYRIGHT BY SANGMYUNG UNIVERSITY. ALL RIGHTS RESERVED.</p>
+          </div>
+        </div>
+      </div>
+    <script>
+        // 구글 지도 API 키
+        const apiKey = 'AIzaSyC972JC6XbnY4PtbJmJlT9aidysGGVUMG8';
+    
+        // 지도를 표시할 위치의 위도와 경도
+        const latitude = 36.8131; // 위도
+        const longitude = 127.1481; // 경도
+    
+        // API 스크립트 동적으로 추가
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initMap`;
+        script.defer = true;
+        script.async = true;
+    
+        // 스크립트 로딩이 완료되면 initMap 함수 호출
+        script.onload = () => {
+            initMap();
         };
+    
+        // 페이지에 스크립트 추가
+        document.head.appendChild(script);
+    
+        // 구글 지도 초기화 함수
+        function initMap() {
+            const mapOptions = {
+                center: { lat: latitude, lng: longitude },
+                zoom: 15 // 확대 수준 (1:세계, 5:대륙, 10:도시, 15:거리, 20:건물)
+            };
+    
+            // 지도 생성
+            const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    
+            // 마커 생성
+            const marker = new google.maps.Marker({
+                position: { lat: latitude, lng: longitude },
+                map: map,
+                title: '마커 제목'
+            });
+        }
+    </script>
+</body>
 
-        // 지도 생성
-        const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+</html>
 
-        // 마커 생성
-        const marker = new google.maps.Marker({
-            position: { lat: latitude, lng: longitude },
-            map: map,
-            title: '마커 제목'
-        });
-    }
-</script>

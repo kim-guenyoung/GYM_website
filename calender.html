@@ -5,12 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Calendar API Example</title>
     <script src="https://apis.google.com/js/api.js"></script>
-</head>
-<body>
-    <h1>Google Calendar Events</h1>
-    <ul id="events-list"></ul>
-    <div id="calendar"></div>  
-    <iframe src="https://calendar.google.com/calendar/embed?src=360216e86a78a9d039a255bc6a2e71d7550fd8bd76922af5dd50def9604bc72e%40group.calendar.google.com&ctz=Asia%2FSeoul" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-    <a href = "https://calendar.google.com/calendar/ical/ko.south_korea%23holiday%40group.v.calendar.google.com/public/basic.ics"></a>
-</body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link href='fullcalendar.main.min.css' rel='stylesheet' />
+   <script src='ko.js'></script>
+    <script src='fullcalendar.main.min.js'></script>
+
+   <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FSeoul&src=a2tpbWd1ZW55b3VuZ0BnbWFpbC5jb20&src=MzYwMjE2ZTg2YTc4YTlkMDM5YTI1NWJjNmEyZTcxZDc1NTBmZDhiZDc2OTIyYWY1ZGQ1MGRlZjk2MDRiYzcyZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=a28uc291dGhfa29yZWEjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%23E67C73&color=%2333B679&color=%230B8043" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/bPopup/0.11.0/jquery.bpopup.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+         var calendarEl = document.getElementById('calendar');
+         var calendar = new FullCalendar.Calendar(calendarEl, {
+            locale: "ko",
+            initialView: 'dayGridMonth',
+            headerToolbar: {
+               left: 'prev,next today',
+               center: 'title',
+               right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+            },
+            googleCalendarApiKey: 'AIzaSyBTDLqukGcOE-m3wdEyhmwc56yxPc4pKyQ', // Add your API key here
+            eventClick: function(info) {
+               let start_year = info.event.start.getUTCFullYear();
+               let start_month = info.event.start.getMonth() + 1;
+               let start_date = info.event.start.getUTCDate();
+               let start_hour = info.event.start.getHours();
+               let start_minute = info.event.start.getMinutes();
+               let start_second = info.event.start.getSeconds();
+               let end_hour = info.event.end.getHours();
+
+               let start = start_year + "-" + start_month + "-" + start_date + " " + start_hour + "시 ~ " + end_hour + "시";
+
+               let attends = "";
+               info.event.extendedProps.attachments.forEach(function(item) {
+                  attends += "<div><a href='"+item.fileUrl+"' target='_blank'>[첨부파일]</a></div>"
+               });
+
+               if(!info.event.extendedProps.description) {
+                  info.event.extendedProps.description = "";
+               }
+               let contents = `
+                  <div style='font-weight:bold; font-size:20px; margin-bottom:30px; text-align:center'>
+                     ${start}
+                  </div>
+                  <div style='font-size:18px; margin-bottom:20px'>
+                     제목: ${info.event.title}
+                  </div>
+                  <div style='width:500px'>
+                     ${info.event.extendedProps.description}
+                     ${attends}
+                  </div>
+               `;
+
+               $("#popup").html(contents);
+               $("#popup").bPopup({
+                  speed: 650,
+                  transition: 'slideIn',
+                  transitionClose: 'slideBack',
+                  position: [($(document).width()-500)/2, 30] //x, y
+               });
+               info.jsEvent.stopPropagation();
+               info.jsEvent.preventDefault();
+            }
+         });
+
+         var calendarIds = [
+            "360216e86a78a9d039a255bc6a2e71d7550fd8bd76922af5dd50def9604bc72e@group.calendar.google.com",
+            "addressbook#contacts@group.v.calendar.google.com",
+            "ko.south_korea#holiday@group.v.calendar.google.com",
+         ];
+
+         calendarIds.forEach(function(calendarId) {
+            calendar.addEventSource({
+               googleCalendarId: calendarId,
+               className: 'gcal-event' // an option!
+            });
+         });
+
+         calendar.render();
+      });
+    </script>
+  </head>
+  <body>
+    <div id='calendar'></div>
+   <div id='popup' style="width:500px; height:600px; display:none; background-color:white; padding:20px; border-radius:14px; border:2px solid #eeeeee"></div>
+  </body>
 </html>

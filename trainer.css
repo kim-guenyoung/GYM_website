@@ -11,6 +11,9 @@ body {
     justify-content: center;
 }
 
+.trainer_info{
+    text-align: justify;
+}
 .container {
     display: flex;
 }
@@ -18,15 +21,15 @@ body {
 /* Add this CSS code to your existing styles */
 .K,
 .Y {
-position: relative;
-flex: 1;
-text-align: center;
-width: 50%; /* Set the width to 50% */
-padding: 2%; /* Adjust padding as needed */
-transition: transform 0.5s;
+    position: relative;
+    flex: 0.8;
+    text-align: center;
+    width: 50%; /* Set the width to 50% */
+    padding: 2%; /* Adjust padding as needed */
+    transition: transform 0.5s;
 }
 
-.modal-content {
+.trainer_info {
 position: absolute;
 top: 0;
 left: 0;
@@ -36,6 +39,7 @@ background: rgba(255, 255, 255, 0.7);
 display: flex;
 align-items: center;
 justify-content: center;
+vertical-align: middle;
 transform: rotateY(180deg);
 visibility: hidden;
 opacity: 0;
@@ -48,8 +52,50 @@ transition: visibility 0s, opacity 0.5s;
 transform: rotateY(180deg);
 }
 
-.K:hover .modal-content,
-.Y:hover .modal-content {
+.K:hover .trainer_info,
+.Y:hover .trainer_info {
 visibility: visible;
 opacity: 1;
+}
+nav#navTop2 {
+    width: 800px;
+    position: fixed;
+    margin-top: -800px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+ul#topmenu {
+    display: table;
+    width: 90%;
+    margin: 20px auto;
+    border: 2px solid #fff;
+}
+
+
+nav#navTop2 li {
+    display: table-cell;
+
+    /*background-color: #77b193;*/
+}
+
+nav#navTop2 li:first-child {
+    border-left: none;
+}
+nav#navTop2 li:hover a {
+    background-color: #fff;
+    color: #000;
+}
+nav#navTop2 li.active a {
+    background-color: #fff;
+    color: #000;
+}
+nav#navTop2 li a {
+    display: block;
+    line-height: 40px;
+    text-align: center;
+    padding: 0 5px;
+    color: #ccc;
+    font-weight: bold;
+    font-size: 20px;
 }

@@ -1,0 +1,150 @@
+body{
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgb(90, 136, 136);
+}
+img{
+    margin-left: 300px;
+}
+.fullbody {
+    position: absolute;
+    z-index: 0;
+    opacity: 0.5;
+    left: 0;
+    width: 500px;
+    transition: left 1s ease;
+}
+
+h1, h3{
+    margin-left: 850px;
+}
+h2{
+    font-size: 50px;
+}
+li, p{
+    font-weight: 700;
+    font-size: 30px;
+}
+.muscle_samgak {
+    position: absolute;
+    z-index: 1;
+    width: 90px; /* 디자인에 따라 조절이 필요할 수 있습니다. */
+    top: 345px;
+    left: 120px;
+}
+
+.muscle_daehung{
+    position: absolute;
+    z-index: 1;
+    margin: 140px 0 0 440px; /* 상, 하, 좌, 우의 마진을 각각 설정 */
+    width: 120px;
+
+}
+
+.muscle_sangwan{
+    position: absolute;
+    z-index: 1;
+    margin: 285px 0 0 610px; /* 상, 하, 좌, 우의 마진을 각각 설정 */
+    width: 200px;
+    top: 35px;
+    left: -60px;
+    transform: scale(0.6);
+
+}
+
+.muscle_jeonwan {
+    position: absolute;
+    z-index: 1;
+    margin: 350px 0 0 640px; /* 상, 하, 좌, 우의 마진을 각각 설정 */
+    width: 150px;
+    top: 75px;
+    left: -5px;
+    transform: scale(0.5);
+}
+
+
+.muscle_seungmo {
+    position: absolute;
+    z-index: 1;
+    margin: 90px 550px; /* 상, 하, 좌, 우의 마진을 각각 설정 */
+    width: 100px; /* 디자인에 따라 조절이 필요할 수 있습니다. */
+    left: -15px;
+    transform: scale(0.8);
+}
+
+
+.muscle_daetoi{
+    position: absolute;
+    z-index: 1;
+    width: 300px;
+    top: 420px;
+    left: 45px;
+    transform: scale(0.33);
+}
+
+.muscle_bibok{
+    position: absolute;
+    z-index: 1;
+    width: 300px;
+    top: 780px;
+    left: 10px;
+    transform: scale(0.3);
+
+    display: block;
+}
+
+.muscle_bokjik {
+    position: absolute;
+    z-index: 1;
+    margin: -90px 0 0 400px; /* 상, 하, 좌, 우의 마진을 각각 설정 */
+    width: 300px; /* 디자인에 따라 조절이 필요할 수 있습니다. */
+    transform: scale(0.22);
+}
+
+.muscle_boksa {
+    position: absolute;
+    z-index: 5;
+    top: 35px;
+    width: 470px;
+    left: -35px;
+    transform: scale(0.2);
+}
+
+.muscle_samgak:hover,
+.muscle_daehung:hover,
+.muscle_sangwan:hover,
+.muscle_jeonwan:hover,
+.muscle_seungmo:hover,
+.muscle_bokjik:hover,
+.muscle_daetoi:hover,
+.muscle_bibok:hover,
+.muscle_boksa:hover {
+    opacity: 1; 
+}
+
+.muscle_samgak,
+.muscle_daehung,
+.muscle_sangwan,
+.muscle_jeonwan,
+.muscle_seungmo,
+.muscle_bokjik,
+.muscle_daetoi,
+.muscle_bibok,
+.muscle_boksa {
+    position: absolute;
+    z-index: 1;
+    opacity: 0; 
+    transition: opacity 0.5s ease; 
+}
+
+
+#displayText {
+    width: 52%; 
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 90px; 
+    margin-left: 850px; 
+}

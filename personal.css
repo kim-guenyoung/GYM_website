@@ -1,16 +1,29 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 20px;
+  background-color: azure;
+
 }
 
 h1 {
   color: #333;
+  padding: 30px;
 }
 
 #csvContent {
+  margin: 20px;
   margin-top: 20px;
 }
 
-h3 {
+h2 {
+  margin: 20px;
   color: #0066cc;
+}
+
+button{
+  padding: 30px;
+  background-color: black;
+  width: 150px;
+  color: white;
+  font-size: 30px;
+  border-radius: 10px;
 }

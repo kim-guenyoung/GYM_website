@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.9 user-scalable=no">
     <title>메인화면</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/fullpage.css" />
+    <link rel="stylesheet" href="css/swiper.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+   
   </head>
   <body>
     <div class="login_box">
@@ -21,20 +28,6 @@
       </div>
       <div class="btn_box">
         <button id="login_btn" type="button" onclick="login()">Login</button>
-        <div class="others">
-          <ul>
-            <li>
-              <a>회원가입</a>
-            </li><span>&nbsp;|</span>
-            <li>
-              <a>아이디 찾기</a>
-            </li>
-            <span>|</span>
-            <li>
-              <a>비밀번호 재설정</a>
-            </li>
-          </ul>          
-        </div>
       </div>
     </div>
 
@@ -71,6 +64,7 @@
 
                 alert("Login successful!");
                 
+                
                 // Redirect to personal.html upon successful login
                 window.location.href = 'personal.html';
                 return;
@@ -83,6 +77,16 @@
           .catch(error => {
             console.error('Error:', error);
           });
+      }
+    </script>
+    <script>
+      function navigateToPersonal() {
+        const isLoggedIn = localStorage.getItem('User');
+        if (isLoggedIn) {
+          window.location.href = 'personal.html';
+        } else {
+          window.location.href = 'login.html';
+        }
       }
     </script>
   </body>

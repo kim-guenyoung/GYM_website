@@ -2,18 +2,24 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f8f8f8; /* Light gray background */
     color: #333; /* Dark gray text color */
+    text-align: left;
 }
 
 #payment-form {
-    width: 400px;
-    margin: 50px auto;
-    padding: 20px;
+    width: 40%;
+    margin: 150px auto; /* Adjust the top margin to move it down */
+    padding: 60px;
     border: 2px solid #333; /* Dark gray border */
     border-radius: 8px;
     background-color: #fff; /* White background */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
 }
 
+#person2{
+    margin-left: 1250px;
+    margin-top: -100px;
+    width: 60px;
+}
 label {
     display: inline-block;
     margin-bottom: 10px;
@@ -30,11 +36,135 @@ button {
     width: 80px;
     transition: background-color 0.3s ease; /* Smooth transition on hover */
 }
-
+label{
+    font-size: 25px;
+    margin-top: 20px;
+}
+#months{
+    padding: 10px;
+}
 button:hover {
     background-color: #555; /* Darker gray background on hover */
 }
 
-#coupon-code {
-    display: none; /* Initially hidden */
+
+#coupon-input{
+    padding: 10px;
+}
+
+
+#total-price{
+    font-size: 30px;
+}
+
+.footer4{
+    margin-top: 300px;
+}.footer{
+    padding-top: 50px;
+}
+
+
+.footer4{
+    padding-top: 20px;
+    font-size: 20px;
+
+}
+
+.footer4>{
+    width: 1000px; 
+    margin: 0 auto;
+    text-align: center;
+    font-size:1px;
+}
+
+.footer4> p.top{
+    color: #fff;
+    font-size: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.footer4> p{
+    padding: 5px;
+    padding-left: 20px;
+    color:#fff;
+    font-size: 20px;
+}
+
+.popup h2{
+    color: white;
+}
+
+#hidecoupon a:visited {
+    color: yellow;
+}
+
+.popup {
+    background-color: black;
+    width: 500px;
+    z-index: 100;
+    padding: 40px;
+    position: absolute;
+    top: 30px;
+    left: 35%;
+    transform: translate(-50%, 0);
+    border-radius: 15px;
+}
+
+#closeButton{
+    width: 400px;
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    justify-content: center;
+}
+
+
+
+
+nav#navTop2 {
+    width: 800px;
+    position: fixed;
+    left: 50%;
+    margin-top: -150px;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+ul#topmenu {
+    display: table;
+    width: 90%;
+    margin: 20px auto;
+    border: 2px solid #fff;
+}
+
+nav#navTop2 li {
+    display: table-cell;
+    /*background-color: #77b193;*/
+}
+
+nav#navTop2 li:first-child {
+    border-left: none;
+}
+nav#navTop2 li:hover a {
+    background-color: #fff;
+    color: #000;
+}
+nav#navTop2 li.active a {
+    background-color: #fff;
+    color: #000;
+}
+nav#navTop2 li a {
+    display: block;
+    line-height: 40px;
+    text-align: center;
+    padding: 0 5px;
+    color: #ccc;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+nav#navTop2 li {
+    position: relative;
 }

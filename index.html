@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/fullpage.css" />
+    <link rel="stylesheet" href="css/swiper.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/jquery.fullPage.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/wow.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("#fullpage").fullpage({
+          anchors: ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th"],
+          menu: "#topmenu",
+          navigation: true,
+          slideNavigation: true,
+        });
+      });
+    </script>
+  </head>
+  
+  <body>
+    <nav id="navTop">
+      <ul id="topmenu" class="clearfix">
+        <li data-menuanchor="1st" class="active"><a href="#1st">HOME</a></li>
+        <li data-menuanchor="2nd"><a href="#2nd">INFO</a></li>
+        <li data-menuanchor="3rd"><a href="#3rd">프로그램</a></li>
+        <li data-menuanchor="4th"><a href="#4th">운동법</a></li>
+        <li data-menuanchor="5th"><a href="notice.html">공지사항</a></li>
+        <li data-menuanchor="6th"><a href="center.html">자주 묻는 질문</a></li>
+        <li data-menuanchor="7th"><a href="고객센터.html 여기에 넣어줘">FAQ</a></li>
+      </ul>
+      <img id="person" src="img/person.png" onclick="window.location.href='login.html'" style="cursor: pointer;" />
+
+    </nav>
+    <div id="fullpage">
+      
+      <div class="section page" id="page1" data-anchor="1st">
+        
+        <div class="mainpage animated rubberBand">
+          <h1>
+            흔들린다면 그건
+            지방입니다.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </h1>
+        </div>
+        <div class="popup_">
+          <h2>12월 이벤트!</h2>
+          <img id="info5" src="img/안내5.png" />
+          <br />
+          <div id="hidecoupon">
+            <a href="notice.html">쿠폰 코드 보러가기</a>
+          </div>
+
+          <button id="closeButton">닫기</button>
+        </div>
+      </div>
+      <div class="section page" id="page2" data-anchor="2st">
+        <div class="mainText1">
+          <h2>Information</h2>
+        </div>
+        <div class="info">
+          <ul class="infoWrap clearfix">
+            <li>
+              <div class="card">
+                <img src="img/strong.png" alt="#" />
+                <div class="txt">
+                  <p>헬스장 정보</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="card">
+                <a href="trainer.html"><img src="img/trainer.png" alt="#" /></a>
+                <div class="txt">
+                  <p>트레이너</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="card">
+                <a href="map.html"><img src="img/map.png" alt="#" /></a>
+                <div class="txt">
+                  <p>오시는길</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section page" id="page3" data-anchor="3st">
+        <div class="mainText2">
+          <h2>Program</h2>
+        </div>
+        <div class="program clearfix">
+          <div class="pool">
+            <img src="img/pool.jpeg" alt="#" width="390px" height="490px" />
+            <div class="page3txt">
+              <h3>수영장</h3>
+              <p>학교에 수영장이?!</p>
+            </div>
+          </div>
+          <div class="squash">
+            <img src="img/squash.jpeg" alt="#" width="390px" height="490px" />
+            <div class="page3txt">
+              <h3>스쿼시장</h3>
+              <p>속이 빈 고무공으로 경기하는 라켓<br />스포츠 "스쿼시"</p>
+            </div>
+          </div>
+          <div class="health">
+            <img src="img/health.jpeg" alt="#" width="390px" height="490px" />
+            <div class="page3txt">
+              <h3>체력단련실</h3>
+              <p>
+                건강한 몸의 비결
+                <br />"체력단련실"
+              </p>
+            </div>
+          </div>
+          <div class="golf">
+            <img src="img/golf.jpeg" alt="#" width="390px" height="490px" />
+            <div class="page3txt">
+              <h3>스크린 골프</h3>
+              <p>스크린에서 필드로 이어진다 "스크린 골프"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section page" id="page5" data-anchor="5st">
+        <div class="mainText4">
+          <h2>Exercise</h2>
+          <p>
+            부위별 운동, 기구를 소개합니다.
+            <br />올바른 운동법으로 더욱 건강한 몸을 만들어 봅시다.
+          </p>
+        </div>
+
+        <div class="imgWrap">
+          <ul>
+            <li>
+              <img id ="_02" src="img/weight.jpg" alt="#" />
+              <div
+                class="lasttxt"
+                onclick="window.location.href='sports.html';"
+              >
+                <h4>운동기구 설명</h4>
+              </div>
+            </li>
+            <li>
+              <img id="_01" src="img/image.png" alt="#" />
+              <div
+                class="lasttxt"
+                onclick="window.location.href='muscle.html';"
+              >
+                <h4>운동<br />부위별<br />설명</h4>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer" style="background-color: #494949; height: 200px">
+        <div class="addresswrap">
+          <p class="top">
+            개인정보처리방침 | 영상정보처리기기 운영관리방침 |
+            이메일주소무단수집거부 | 홈페이지콘텐츠담당자 : 스포융합학부(전화
+            : 041-550-5334) / 메일 : convergenceofsports@smu.ac.kr
+          </p>
+          <p>
+            (우 31066) 충남 천안시 동남구 상명대길 31 상명대학교
+            스포츠융합학부 (스포츠센터 K102호) TEL. 041-550-5334 FAX.
+            041-550-5339
+          </p>
+          <p>COPYRIGHT BY SANGMYUNG UNIVERSITY. ALL RIGHTS RESERVED.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var swiper = new Swiper(".swiper-container", {
+      effect: "coverflow",
+      centeredSlides: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      },
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+      // "page1" ID를 가진 요소를 찾아옵니다.
+      var page1Element = document.getElementById("page1");
+
+      // "header-image" 클래스를 가진 요소를 찾아옵니다.
+      var headerImageElement = page1Element.querySelector(".header-image");
+
+      // 찾아온 요소가 존재하는지 확인합니다.
+      if (page1Element && headerImageElement) {
+        // "page1" ID를 가진 요소를 숨깁니다.
+        page1Element.style.display = "block";
+
+        // 닫기 버튼 클릭 시 실행될 함수
+        document
+          .getElementById("closeButton")
+          .addEventListener("click", function () {
+            // "header-image" 클래스를 가진 요소도 숨깁니다.
+            headerImageElement.style.display = "none";
+          });
+      }
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+      // Adding event listener for close button
+      var closeButton = document.getElementById("closeButton");
+      closeButton.addEventListener("click", function () {
+          // Hide the popup when the close button is clicked
+          var popup = document.querySelector(".popup_");
+          popup.style.display = "none";
+      });
+  });
+  </script>
+  </body>
+</html>

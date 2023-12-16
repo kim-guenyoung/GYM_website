@@ -1,3 +1,7 @@
+body{
+    background-color: slategray;
+}
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -10,15 +14,16 @@ section.notice {
     margin-bottom: 60px;
 }
 .page-title h3 {
-    font-size: 28px;
+    padding-top: 10px;
+    font-size: 45px;
     color: #333333;
-    font-weight: 400;
+    font-weight: 700;
     text-align: center;
 }
 
 #board-search .search-window {
     padding: 15px 0;
-    background-color: #f9f7f9;
+    background-color: slategray;
 }
 #board-search .search-window .search-wrap {
     position: relative;
@@ -62,7 +67,6 @@ section.notice {
     line-height: 1.4;
     word-break: break-all;
     vertical-align: middle;
-    
 }
 .board-table a:hover {
     text-decoration: underline;
@@ -72,6 +76,7 @@ section.notice {
 }
 
 .board-table .th-num {
+    
     width: 100px;
     text-align: center;
 }
@@ -84,9 +89,15 @@ section.notice {
     padding: 14px 0;
 }
 
+#num{
+    vertical-align: middle;
+    text-align: center;
+}
 .board-table tbody td {
     border-top: 1px solid #e7e7e7;
-    text-align: center;
+}
+p{
+    padding-left: 130px;
 }
 
 .board-table tbody th {
@@ -96,6 +107,9 @@ section.notice {
     text-align: left;
 }
 
+#couponImg{
+    margin-left: 130px;
+}
 .btn {
     display: inline-block;
     padding: 0 30px;

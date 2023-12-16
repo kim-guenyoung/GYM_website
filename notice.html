@@ -4,136 +4,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="notice.css"/> 
+    <link rel="stylesheet" type="text/css" href="notice.css"/>
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/fullpage.css" />
+    <link rel="stylesheet" href="css/swiper.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/footer2.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    
 </head>
+<nav id="navTop">
+    <ul id="topmenu" class="clearfix">
+      <li data-menuanchor="1st" class="active"><a href="#1st">HOME</a></li>
+      <li data-menuanchor="2nd"><a href="#2nd">INFO</a></li>
+      <li data-menuanchor="3rd"><a href="#3rd">프로그램</a></li>
+      <li data-menuanchor="4th"><a href="#4th">운동법</a></li>
+      <li data-menuanchor="5th"><a href="notice.html">공지사항</a></li>
+      <li data-menuanchor="6th"><a href="center.html">자주 묻는 질문</a></li>
+      <li data-menuanchor="7th"><a href="고객센터.html 여기에 넣어줘">FAQ</a></li>
+    </ul>
+    <img id="person" src="img/person.png" onclick="window.location.href='login.html'" style="cursor: pointer;" />
+
+  </nav>
 <body>
     <section class="notice">
         <div class="page-title">
-              <div class="container">
-                  <h3>공지사항</h3>
-              </div>
-          </div>
-      
+            <div class="container">
+                <h3>공지사항</h3>
+            </div>
+        </div>
           
-          <div id="board-search">
-              <div class="container">
-                  <div class="search-window">
-                      <form action="">
-                          <div class="search-wrap">
-                              <label for="search" class="blind">공지사항 내용 검색</label>
-                              <input id="search" type="search" name="" placeholder="검색어를 입력해주세요." value="">
-                              <button type="submit" class="btn btn-dark">검색</button>
-                          </div>
-                      </form>
-                  </div>
-              </div>
-          </div>
+        <div id="board-search">
+            <div class="container">
+                <div class="search-window">
+                    <form action="">
+                        <div class="search-wrap">
+                            <label for="search" class="blind">공지사항 내용 검색</label>
+                            <input id="search" type="search" name="" placeholder="검색어를 입력해주세요." value="">
+                            <button type="submit" class="btn btn-dark">검색</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
          
        
-          <div id="board-list">
-              <div class="container">
-                  <table class="board-table">
-                      <thead>
-                      <tr>
-                          <th scope="col" class="th-num">No</th>
-                          <th scope="col" class="th-title">title</th>
-                          <th scope="col" class="th-date">Date</th>
-                          
-                      </tr>
-                      </thead>
-                      <tbody>
-
+        <div id="board-list">
+            <div class="container">
+                <table class="board-table">
+                    <thead>
+                    <tr>
+                        <th scope="col" class="th-num">No</th>
+                        <th scope="col" class="th-title">title</th>
+                        <th scope="col" class="th-date">Date</th>
+                        
+                    </tr>
+                    </thead>
+                    <tbody>
                         <tr>
-                            <td>7</td>
-                            <th class="th-title">연말인사</th>
+                            <td id="num">7</td>
+                            <th class="th-title">
+                                <a href="#" id="eventLink">연말인사</a>
+                            </th>
                             <td>2023년 12월 30일 토요일</td>
                         </tr>
                         <tr style="display: none;"> <!-- 공지에 대한 내용은 숨겨진 상태로 시작합니다. -->
                             <td colspan="3">
                                 <!-- 연말인사에 대한 내용을 추가합니다. -->
                                 <p>올 한해 목표한 내용은 잘 이루셨는지요? 2024년에도 건강한 모습으로 만나요. </p>
+                                <img id = "couponImg" src="img/안내7.png" alt="12월 쿠폰" width="100px">
                             </td>
                         </tr>
     
                     
 
       
-                      <tr>
-                          <td>6</td>
-                          <th class="th-title">크리스마스 안내</a></th>
-                          <td>2023년 12월 25일 월요일</td>
-                      </tr>
-                      <tr style="display: none;">
-                           <td colspan="3">
+                        <tr>
+                            <td id="num">6</td>                            <th class="th-title">
+                                <a href="#" id="eventLink">크리스마스 안내</a>
+                            </th>
+                            <td>2023년 12월 25일 월요일</td>
+                        </tr>
+                        <tr style="display: none;">
+                            <td colspan="3">
                             <p>크리스마스에 모든 사람에 축복을 기원합니다. </p>
-                           </td>
-                      </tr>
-                        
-                      <td>5</td>
-                      <th class="th-title">
-                        <a href="#" id="eventLink">12월 할인 이벤트</a>
-                      </th>
-                      <td>2023년 12월 1일 금요일</td>
-                      <td>
-                        <img src="/images/안내5.png" width="100px" alt="Event Image" id="eventImage">
-                      </td>
-                      
-                      <tr style="display: none;">
-                          <td colspan="3">
-                            <p>올해의 마지막도 건강하게 보내자구요! 12월의 크리스마스를 맞이하여 할인 이벤트를 진행합니다. 쿠폰란에 X-mas를 입력하세요. </p>
-                          </td>
-                      </tr>
-    
-                      <tr>
-                          <td>4</td>
-                          <th class="th-title">11월 정기 등록 안내</a></th>
-                          <td>2023년 11월 1일 수요일</td>
-                      </tr>
-                      <tr style="display: none;">
-                        <td colspan="3">
-                            <p>11월도 헬스장은 정상 영업합니다.</p>
-                        </td>
-                      </tr>
-    
-                      <tr>
-                          <td>3</td>
-                          <th  class="th-title">10월 정기 등록 안내</a></th>
-                          <td>2023년 10월 1일 일요일</td>
-                      </tr>
-                      <tr style="display: none;">
-                          <td colspan="3">
-                            <p>10월도 헬스장은 정상 영업합니다. </p>
-                          </td>
-                      </tr>
-    
-                      <tr>
-                          <td>2</td>
-                          <th class="th-title">헬스장 도우미 안내</a></th>
-                          <td>2023년 6월 20일 화요일</td>
-                      </tr>
-                      <tr style="display: none;">
-                          <td colspan="3">
-                            <P>헬스장에서 도움을 주고 있는 도우미 회원님을 소개합니다. </P>
-                          </td>
-                      </tr>
-    
-                      <tr>
-                          <td>1</td>
-                          <th class="th-title">어린이날 안내</a></th>
-                          <td>2023년 5월 5일 금요일</td>
-                      </tr>
-                      <tr style="display: none">
-                          <td colspan="3">
-                            <p>오늘은 어린이 날입니다. 가족과 즐거운 하루 보내세요. </p>
-                          </td>
-                   
+                            <img id = "couponImg" src="img/안내6.png" alt="12월 쿠폰" width="100px">
 
-                      </tr>
+                            </td>
+                        </tr>
+                        
+                        <td id="num">5</td>                        <th class="th-title">
+                        <a href="#" id="eventLink">12월 할인 이벤트</a>
+                        </th>
+                        <td>2023년 12월 1일 금요일</td>
+                        <tr style="display: none;">
+                            <td colspan="3">
+                            <p>올해의 마지막도 건강하게 보내자구요! 12월의 크리스마스를 맞이하여 할인 이벤트를 진행합니다. 쿠폰란에 X-mas를 입력하세요. </p>
+                            <img id = "couponImg" src="img/안내5.png" alt="12월 쿠폰" width="100px">
+                        </td>
+                        </tr>
+
+                        <tr>
+                            <td id="num">4</td>                            <th class="th-title">
+                                <a href="#" id="eventLink">11월 정기 등록 안내</a>
+                            </th>
+                            <td>2023년 11월 1일 수요일</td>
+                        </tr>
+                        
+                        <tr style="display: none;">
+                            <td colspan="3">
+                                <p>11월도 헬스장은 정상 영업합니다.</p>
+                                <img id = "couponImg" src="img/안내4.png" alt="12월 쿠폰" width="100px">
+                            </td>
+                        </tr>
+    
+                        <tr>
+                            <td id="num">3</td>                            <th class="th-title">
+                                <a href="#" id="eventLink">10월 정기 등록 안내</a>
+                            </th>
+                            <td>2023년 10월 1일 일요일</td>
+                        </tr>
+                        <tr style="display: none;">
+                            <td colspan="3">
+                                <p>10월도 헬스장은 정상 영업합니다. </p>
+                                <img id = "couponImg" src="img/안내3.png" alt="12월 쿠폰" width="100px">
+                            </td>
+                        </tr>
+    
+                        <tr>
+                            <td id="num">2</td>                            <th class="th-title">
+                                <a href="#" id="eventLink">헬스장 도우미 안내</a>
+                            </th>
+                            <td>2023년 6월 20일 화요일</td>
+                        </tr>
+                        <tr style="display: none;">
+                            <td colspan="3">
+                                <p>헬스장에서 도움을 주고 있는 도우미 회원님을 소개합니다. </p>
+                                <video id = "couponImg" autoplay controls muted width="100px">
+                                    <source src="img/안내2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </td>
+                        </tr>
+    
+                        <tr>
+                            <td id="num">1</td>                            <th class="th-title">
+                                <a href="#" id="eventLink">어린이날 안내</a>
+                            </th>
+                            <td>2023년 5월 5일 금요일</td>
+                        </tr>
+                        <tr style="display: none">
+                            <td colspan="3">
+                                <p>오늘은 어린이날입니다. 가족과 즐거운 하루 보내세요. </p>
+                                <img id = "couponImg" src="img/안내1.png" alt="12월 쿠폰" width="100px">
+                            </td>
+                        </tr>
                       </tbody>
                   </table>
               </div>
           </div>
-      
       </section>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var titles = document.querySelectorAll('.th-title');
+            titles.forEach(function (title) {
+                title.addEventListener('click', function () {
+                    var content = title.parentNode.nextElementSibling;
+                    if (content.style.display === 'none' || content.style.display === '') {
+                        content.style.display = 'table-row';
+                    } else {
+                        content.style.display = 'none';
+                    }
+                });
+            });
+        });
+      </script>
+      <div class="footer2" style="background-color: #494949; height: 200px">
+        <p class="top">
+            개인정보처리방침 | 영상정보처리기기 운영관리방침 |
+            이메일주소무단수집거부 | 홈페이지콘텐츠담당자 : 스포융합학부(전화
+            : 041-550-5334) / 메일 : convergenceofsports@smu.ac.kr
+        </p>
+        <p>
+            (우 31066) 충남 천안시 동남구 상명대길 31 상명대학교
+            스포츠융합학부 (스포츠센터 K102호) TEL. 041-550-5334 FAX.
+            041-550-5339
+        </p>
+        <p>COPYRIGHT BY SANGMYUNG UNIVERSITY. ALL RIGHTS RESERVED.</p>
+    </div>
 </body>
 </html>
