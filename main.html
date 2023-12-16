@@ -1,60 +1,82 @@
-<link rel="stylesheet" type="text/css" href="main.css"/> 
-<script src="main.js"></script>
+<!DOCTYPE html>
+<html lang="en">
 
-<main class="main flow">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <link rel="stylesheet" type="text/css" href="main.css" />
+  <script src="main.js"></script>
+
+  <main class="main flow">
     <h1 class="main__heading">00gyms</h1>
+    <div class="popup_">
+      <h2>12월 이벤트!</h2>
+      <img id="info5" src="/images/안내5.png">
+      <br>
+      <div id="hidecoupon">
+        <a href ="notice.html"><br>쿠폰 코드 보러가기</a>
+      </div>
+
+      <button id="closeButton">닫기</button></div>
+    
     <div class="main__cards cards">
       <div class="cards__inner">
         <div class="cards__card card">
           <h2 class="card__heading">소개기능</h2>
-          
           <a href="map.html" target="display_area" class="card__cta cta">location</a>
-          <a href="introduce.html" target="display_area" class="card__cta cta">day off</a>
-          <a href="map.html" target="display_area" class="card__cta cta">trainer</a>
+          <a href="calender.html" target="display_area" class="card__cta cta">day off</a>
+          <a href="trainer.html" target="display_area" class="card__cta cta">trainer</a>
         </div>
-         
-        <div class="cards__card card">
-            <h2 class="card__heading">공지기능</h2>
-            <p class="card__price">$9.99</p>
-            <ul role="list" class="card__bullets flow">
-              <li>Access to standard workouts and nutrition plans</li>
-              <li>Email support</li>
-            </ul>
-            <a href="#basic" class="card__cta cta">Get Started</a>
-          </div>
-
-          <div class="cards__card card">
-            <h2 class="card__heading">운동안내기능</h2>
-            <p class="card__price">$9.99</p>
-            <ul role="list" class="card__bullets flow">
-              <li>Access to standard workouts and nutrition plans</li>
-              <li>Email support</li>
-            </ul>
-            <a href="#basic" class="card__cta cta">Get Started</a>
-          </div>
 
 
-  
-        <div class="cards__card card">
-          <h2 class="card__heading">커뮤니티</h2>
-         
+        <div class="cards__card card" onclick="location.href='공지기능.html';">
+          <h2 class="card__heading">공지기능</h2>
+
         </div>
-  
+
+        <div class="cards__card card">
+          <h2 class="card__heading">운동안내</h2>
+          <a href="sports.html" target="display_area" class="card__cta cta">운동 기구</a>
+          <a href="introduce.html" target="display_area" class="card__cta cta">신체 부위별 설명</a>
+        </div>
+
         <div class="cards__card card" onclick="location.href='center.html';">
           <h2 class="card__heading">고객센터</h2>
         </div>
-      
       </div>
-      
-      <div class="overlay cards__inner"></div>
+
+
     </div>
 
     <footer class="under">
-      <h6> 평일 9:00 ~ 22:00 >&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span>연락처 000-0000-0000 </span> </br>
-           주말 및 공휴일 9:00 ~ 24:00
+      <h6> 평일 9:00 ~ 22:00 >&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span>연락처 000-0000-0000 </span> </br>
+        주말 및 공휴일 9:00 ~ 24:00
 
-          
-      </h6> 
-    
+
+      </h6>
+
     </footer>
   </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Get references to the button and popup elements
+      var closeButton = document.getElementById("closeButton");
+      var popup = document.querySelector(".popup_"); // Use querySelector to select by class
+
+      // Add a click event listener to the button
+      closeButton.addEventListener("click", function() {
+        // Hide the popup by setting its display property to "none"
+        popup.style.display = "none";
+      });
+    });
+  </script>
+</body>
+
+</html>

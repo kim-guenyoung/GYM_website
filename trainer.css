@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    min-height: 100vh;
+    background-image: url("main.jpg");
+    background-size: cover;
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+}
+
+/* Add this CSS code to your existing styles */
+.K,
+.Y {
+position: relative;
+flex: 1;
+text-align: center;
+width: 50%; /* Set the width to 50% */
+padding: 2%; /* Adjust padding as needed */
+transition: transform 0.5s;
+}
+
+.modal-content {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(255, 255, 255, 0.7);
+display: flex;
+align-items: center;
+justify-content: center;
+transform: rotateY(180deg);
+visibility: hidden;
+opacity: 0;
+transition: visibility 0s, opacity 0.5s;
+}
+
+/* Rotate on hover and show modal content */
+.K:hover,
+.Y:hover {
+transform: rotateY(180deg);
+}
+
+.K:hover .modal-content,
+.Y:hover .modal-content {
+visibility: visible;
+opacity: 1;
+}

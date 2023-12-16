@@ -62,6 +62,7 @@ section.notice {
     line-height: 1.4;
     word-break: break-all;
     vertical-align: middle;
+    
 }
 .board-table a:hover {
     text-decoration: underline;
@@ -170,4 +171,7 @@ section.notice {
     margin: -1px;
     width: 1px;
     height: 1px;
+}
+#eventImage {
+    display: none;
 }
